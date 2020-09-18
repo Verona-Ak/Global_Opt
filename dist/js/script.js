@@ -1,4 +1,21 @@
+//гамбургер
+window.addEventListener('DOMContentLoaded', () => {
+    const navList = document.querySelector('.nav__list'),
+    navItem = document.querySelectorAll('.nav__item'),
+    hamburger = document.querySelector('.hamburger');
 
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('hamburger_active');
+        navList.classList.toggle('nav__list_active');
+    });
+
+    navItem.forEach(item => {
+        item.addEventListener('click', () => {
+            hamburger.classList.toggle('hamburger_active');
+            navList.classList.toggle('nav__list_active');
+        });
+    });
+});
 
 $(document).ready(function(){
     $('.carousel').slick({
@@ -82,10 +99,14 @@ $(document).ready(function(){
 
     $('input[name=phone]').mask("+7 (999) 999-99-99");
 
+    
+
    
 
     
 });
+
+
           
 
 

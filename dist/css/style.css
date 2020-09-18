@@ -1560,6 +1560,20 @@ button {
   margin-right: 19px;
 }
 
+.call__img {
+  display: none;
+}
+
+.call__img div {
+  height: 50px;
+  width: 50px;
+  background: url(../../icons/tube.png) center center/cover no-repeat;
+}
+
+.call__img div:active {
+  background: url(../../icons/tube_orange.png) center center/cover no-repeat;
+}
+
 .button {
   width: 160px;
   height: 45px;
@@ -1649,24 +1663,31 @@ button {
   padding-top: 23px;
 }
 
+.header__row {
+  height: 100px;
+  justify-content: space-between;
+  align-items: start;
+}
+
 .header__logo {
   display: block;
-  width: 96px;
+  width: auto;
   height: 100px;
 }
 
 .header__nav {
-  margin-top: 32px;
+  margin-top: 37px;
 }
 
 .header__call {
-  margin-top: 25px;
+  margin-top: 21px;
 }
 
 .nav__list {
   list-style-type: none;
   display: flex;
-  justify-content: center;
+  padding: 0;
+  margin: 0;
 }
 
 .nav__item {
@@ -1694,6 +1715,10 @@ button {
   color: #ec644b;
   text-decoration: none;
   border-bottom: 1px solid #ec644b;
+}
+
+.hamburger {
+  display: none;
 }
 
 .promo {
@@ -2221,7 +2246,7 @@ button {
 }
 
 .questions__block {
-  width: 896px;
+  max-width: 896px;
   margin: 0 auto;
 }
 
@@ -5674,6 +5699,227 @@ button {
   .ml-xl-auto,
   .mx-xl-auto {
     margin-left: auto !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .header__logo {
+    height: 90px;
+    margin-left: 22px;
+  }
+
+  .header__row {
+    justify-content: space-around;
+  }
+
+  .nav__list {
+    padding: 0;
+  }
+
+  .button_header {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .promo {
+    padding: 114px 0 73px 0;
+  }
+
+  .promo__intro {
+    font-size: 21px;
+  }
+
+  .promo__title {
+    font-size: 68px;
+  }
+
+  .promo__subtitle {
+    font-size: 38px;
+  }
+
+  .promo__descr {
+    font-size: 14px;
+  }
+
+  .promo__item {
+    padding: 0 8px 0 8px;
+  }
+
+  .promo__line::before,
+  .promo__line::after {
+    width: 350px;
+  }
+
+  .header__logo {
+    height: 65px;
+    margin-left: 0;
+  }
+
+  .header__nav {
+    margin-top: 18px;
+  }
+
+  .header__call {
+    margin-top: 2px;
+  }
+
+  .nav__item {
+    padding: 0 7px 0 7px;
+  }
+
+  .call__number {
+    display: none;
+  }
+
+  .call__img {
+    display: block;
+  }
+
+  .button_header {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .call__img {
+    display: none;
+  }
+
+  .header__logo {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+    position: fixed;
+    right: 39px;
+    top: 8%;
+    z-index: 6;
+    transform: translateY(-50%);
+    width: 26px;
+    height: 12px;
+  }
+
+  .hamburger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 5px;
+    transition: 0.5s all;
+  }
+
+  .hamburger_active span {
+    margin-bottom: -2px;
+  }
+
+  .hamburger_active span:nth-child(1) {
+    transform: translateY(3px) rotate(-45deg);
+  }
+
+  .hamburger_active span:nth-child(2) {
+    display: none;
+  }
+
+  .hamburger_active span:nth-child(3) {
+    transform: translateY(3px) rotate(45deg);
+  }
+
+  .nav__list {
+    position: fixed;
+    z-index: 6;
+    top: 0;
+    right: -100%;
+    width: 50%;
+    height: 100vh;
+    padding: 20px 15px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: 0.5s all;
+  }
+
+  .nav__list_active {
+    right: 0;
+  }
+
+  .nav__item {
+    padding-right: 0;
+    border: none;
+    margin: 10px 0;
+  }
+
+  .nav__item a {
+    font-size: 20px;
+  }
+
+  .promo {
+    padding: 47px 0 73px 0;
+  }
+
+  .promo__intro {
+    font-size: 18px;
+  }
+
+  .promo__title {
+    font-size: 63px;
+  }
+
+  .promo__subtitle {
+    font-size: 33px;
+  }
+
+  .promo__line::before,
+  .promo__line::after {
+    width: 240px;
+  }
+}
+
+@media (max-width: 575px) {
+  .promo {
+    padding: 47px 0 53px 0;
+  }
+
+  .promo__line {
+    margin-top: 16px;
+  }
+
+  .promo__line::before,
+  .promo__line::after {
+    width: 120px;
+  }
+
+  .promo__intro {
+    font-size: 12px;
+  }
+
+  .promo__title {
+    font-size: 46px;
+  }
+
+  .promo__subtitle {
+    font-size: 18px;
+  }
+
+  .promo__item {
+    margin-top: 20px;
+  }
+
+  .promo__descr {
+    margin-top: 10px;
+    padding: 0 30px 0 30px;
+  }
+}
+
+@media (max-width: 320px) {
+  .promo {
+    min-height: 452px;
+  }
+
+  .promo__item {
+    display: none;
   }
 }
 
