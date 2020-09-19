@@ -18,48 +18,40 @@
     <!-- Шапка -->
     <header class="header">
         <div class="container">
-            <div class="row header__row">
+            <div class="row justify-content-between">
                 <img src="icons/logo.png" alt="logo" class="header__logo">
-                <div class="header__nav">
-                    <nav class="nav">
-                        <ul class="nav__list nav__list_active">
-                            <li class="nav__item">
-                                <a  href="#advantages">Преимущества</a>
-                            </li>
-                            <li class="nav__item">
-                                <a  href="#ourwork">Наша работа</a>
-                            </li>
-                            <li class="nav__item">
-                                <a  href="#prices">Цены</a>
-                            </li>
-                            <li class="nav__item">
-                                <a  href="#schema">Схема работы</a>
-                            </li>
-                            <li class="nav__item">
-                                <a  href="#reviews">Отзывы</a>
-                            </li>
-                            <li class="nav__item">
-                                <a  href="#map">Контакты</a>
-                            </li>
-                        </ul>
-                    </nav>
-                    
-
-                </div>
-
-                <div class="header__call">
-                    <div class="call">
-                        <div class="call__number call__number_header">
-                            <div class="call__question">Есть вопросы?</div>
-                            <a href="tel:+79264230100" >+7 (926) 423 01 00</a>
-                        </div>
-                        <button class="button button_header">Перезвоните мне</button>
-                        <a href="tel:+79264230100" class="call__img">
-                            <div></div>
-                        </a>
+                <nav class="nav header__nav">
+                    <ul class="nav__list nav__list_active">
+                        <li class="nav__item">
+                            <a  href="#advantages">Преимущества</a>
+                        </li>
+                        <li class="nav__item">
+                            <a  href="#ourwork">Наша работа</a>
+                        </li>
+                        <li class="nav__item">
+                            <a  href="#prices">Цены</a>
+                        </li>
+                        <li class="nav__item">
+                            <a  href="#schema">Схема работы</a>
+                        </li>
+                        <li class="nav__item">
+                            <a  href="#reviews">Отзывы</a>
+                        </li>
+                        <li class="nav__item">
+                            <a  href="#map">Контакты</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="call header__call">
+                    <div class="call__number header__call__number">
+                        <div class="call__question">Есть вопросы?</div>
+                        <a href="tel:+79264230100">+7 (926) 423 01 00</a>
                     </div>
+                    <button class="button header__button">Перезвоните мне</button>
+                    <a href="tel:+79264230100" class="call__img header__call__img">
+                        <div></div>
+                    </a>
                 </div>
-                
             </div>
         </div>
         <div class="hamburger hamburger_active">
@@ -82,10 +74,9 @@
             <h2 class="promo__subtitle">
                 В РОССИЮ И СНГ ВСЕМИ ВИДАМИ ТРАНСПОРТА
             </h2>
-
             <div class="promo__line"></div>
+            <div class="row align-items-baseline">
 
-            <div class="row promo_row">
                 <div class="promo__item col-md-3 col-sm-6 col-12">
                     <img src="icons/promo/oversized.png" alt="oversized" class="promo__icon">
                     <div class="promo__descr">
@@ -113,9 +104,9 @@
                         Экспресс доставка 1-2 дня из Гуанчжоу в Москву от 25$/кг  
                     </div>
                 </div>
-            </div>
 
-            <button class="button button_more promo_button">Получить расчет</button>
+            </div>
+            <button class="button button_more promo__button">Получить расчёт</button>
         </div>
     </section>
 
@@ -127,104 +118,98 @@
                 Преимущества работы с GlobalOpt
             </h3>
             <div class="row">
-                <div class="advantages__paragraph col-md-6">
-                    <img src="icons/advantages/adv_1.png" alt="1" class="advantages__icon">
-                    <div class="advantages__text">
-                        <div class="advantages__title">
+                <div class="paragraph advantages__paragraph col-md-6">
+                    <img src="icons/advantages/adv_1.png" alt="1" class="paragraph__icon">
+
+                    <div class="paragraph__text advantages__paragraph__text">
+                        <div class="paragraph__title advantages__paragraph__title">
                             Офисы в Китае и России
                         </div>
-                        <div class="advantages__descr">
+                        <div class="paragraph__descr advantages__paragraph__descr">
                             Офисы расположены в Москве, столице России.  И в Гуанчжоу, мировом торговом мегаполисе Китая.
                         </div>
                     </div>
                 </div>
 
-
-                <div class="advantages__paragraph col-md-6">
-                    <img src="icons/advantages/adv_5.png" alt="5" class="advantages__icon">
-                    <div class="advantages__text">
-                        <div class="advantages__title">
+                <div class="paragraph advantages__paragraph col-md-6">
+                    <img src="icons/advantages/adv_5.png" alt="5" class="paragraph__icon">
+                    <div class="paragraph__text advantages__paragraph__text">
+                        <div class="paragraph__title advantages__paragraph__title">
                             Декларируем груз с оптимизацией
                         </div>
-                        <div class="advantages__descr">
+                        <div class="paragraph__descr advantages__paragraph__descr">
                             Идем на встречу своим клиентам и помогаем растаможить груз с оптимизацией кодов и ставок.
                         </div>
                     </div>
                 </div>
 
-
-                <div class="advantages__paragraph col-md-6">
-                    <img src="icons/advantages/adv_2.png" alt="2" class="advantages__icon">
-                    <div class="advantages__text">
-                        <div class="advantages__title">
+                <div class="paragraph advantages__paragraph col-md-6">
+                    <img src="icons/advantages/adv_2.png" alt="2" class="paragraph__icon">
+                    <div class="paragraph__text advantages__paragraph__text">
+                        <div class="paragraph__title advantages__paragraph__title">
                             Квалифицированные кадры
                         </div>
-                        <div class="advantages__descr">
+                        <div class="paragraph__descr advantages__paragraph__descr">
                             Наши сотрудники имеют большой опыт в логистике с Китаем и в совершенстве владеют китайским и английским языками.
                         </div>
                     </div>
                 </div>
 
-
-                <div class="advantages__paragraph col-md-6">
-                    <img src="icons/advantages/adv_6.png" alt="6" class="advantages__icon">
-                    <div class="advantages__text">
-                        <div class="advantages__title">
+                <div class="paragraph advantages__paragraph col-md-6">
+                    <img src="icons/advantages/adv_6.png" alt="6" class="paragraph__icon">
+                    <div class="paragraph__text advantages__paragraph__text">
+                        <div class="paragraph__title advantages__paragraph__title">
                             Осуществляем поиск производителей
                         </div>
-                        <div class="advantages__descr">
+                        <div class="paragraph__descr advantages__paragraph__descr">
                             Помогаем нашим клиентам найти интересующий вас товар или производителя в Китае.
                         </div>
                     </div>
                 </div>
 
-
-                <div class="advantages__paragraph col-md-6">
-                    <img src="icons/advantages/adv_3.png" alt="3" class="advantages__icon">
-                    <div class="advantages__text">
-                        <div class="advantages__title">
+                <div class="paragraph advantages__paragraph col-md-6">
+                    <img src="icons/advantages/adv_3.png" alt="3" class="paragraph__icon">
+                    <div class="paragraph__text advantages__paragraph__text">
+                        <div class="paragraph__title advantages__paragraph__title">
                             Собственный склад в Китае
                         </div>
-                        <div class="advantages__descr">
+                        <div class="paragraph__descr advantages__paragraph__descr">
                             Свой склад в Китае, позволяет собирать и проверять и упаковывать  ваши товары, перед отправкой.
                         </div>
                     </div>
                 </div>
 
-
-                <div class="advantages__paragraph col-md-6">
-                    <img src="icons/advantages/adv_7.png" alt="7" class="advantages__icon">
-                    <div class="advantages__text">
-                        <div class="advantages__title">
+                <div class="paragraph advantages__paragraph col-md-6">
+                    <img src="icons/advantages/adv_7.png" alt="7" class="paragraph__icon">
+                    <div class="paragraph__text advantages__paragraph__text">
+                        <div class="paragraph__title advantages__paragraph__title">
                             Перевод денег в Китай
                         </div>
-                        <div class="advantages__descr">
+                        <div class="paragraph__descr advantages__paragraph__descr">
                             Помогаем переводить и оплачивать товар в Китае на льготных условиях
                         </div>
                     </div>
                 </div>
 
-
-                <div class="advantages__paragraph col-md-6">
-                    <img src="icons/advantages/adv_4.png" alt="4" class="advantages__icon">
-                    <div class="advantages__text">
-                        <div class="advantages__title">
+                <div class="paragraph advantages__paragraph col-md-6">
+                    <img src="icons/advantages/adv_4.png" alt="4" class="paragraph__icon">
+                    <div class="paragraph__text advantages__paragraph__text">
+                        <div class="paragraph__title advantages__paragraph__title">
                             Делаем оптовые поставки под ключ
                         </div>
-                        <div class="advantages__descr">
+                        <div class="paragraph__descr advantages__paragraph__descr">
                             Берём на себя все заботы связанные с  закупкой, проверкой на качество, логистикой и растаможкой. От вас требуется лишь заполнить техническое задание, одобрить  образцы товаров и после принять товар на своём складе!
                         </div>
                     </div>
                 </div>
 
-
-                <div class="advantages__paragraph col-md-6">
-                    <img src="icons/advantages/adv_8.png" alt="8" class="advantages__icon">
-                    <div class="advantages__text">
-                        <div class="advantages__title">
+                <div class="paragraph advantages__paragraph col-md-6">
+                    <img src="icons/advantages/adv_8.png" alt="8" class="paragraph__icon">
+                    <div class="paragraph__text advantages__paragraph__text">
+                        <div class="paragraph__title advantages__paragraph__title">
                             Поездка на производство в Китай
                         </div>
-                        <div class="advantages__descr">
+                        <div class="paragraph__descr advantages__paragraph__descr">
                             У нас большой опыт в бизнес поездках по Китаю. Мы с большой радостью и желанием организуем вам такую поездку в Китай под ключ. Сделаем визу, трансфер из аэропорта, забронируем отель, предоставим переводчика. Организуем поездку на производство. Шоп тур. Мебельный тур. 
                         </div>
                     </div>
@@ -244,7 +229,7 @@
                 Мы организуем перевозки из Китая - оперативно и надежно, с учетом особенностей груза <br> и ваших требований по срокам и бюджету.
             </div>
            <div class="row">
-                <div class="work__item col-md-4">
+                <div class="work__item col-lg-4">
                     <img src="img/morethendelivery/insuranse.jpg" alt="insuranse" class="work__img">
                     <div class="work__name">Страховка груза</div>
                     <div class="work__descr">
@@ -252,7 +237,7 @@
                     </div>
                 </div>
 
-                <div class="work__item col-md-4">
+                <div class="work__item col-lg-4">
                     <img src="img/morethendelivery/logistics.jpg" alt="logistics" class="work__img">
                     <div class="work__name">Логистика последней мили</div>
                     <div class="work__descr">
@@ -260,7 +245,7 @@
                     </div>
                 </div>
 
-                <div class="work__item col-md-4">
+                <div class="work__item col-lg-4">
                     <img src="img/morethendelivery/ahead.jpg" alt="ahead" class="work__img">
                     <div class="work__name">Мы всегда смотрим вперед</div>
                     <div class="work__descr">
@@ -273,7 +258,7 @@
 
 
     <!--  Промежуточный блок   -->
-    <div class="intermediate intermediate_agent">
+    <div class="intermediate intermediate__agent">
         <div class="container">
             <img src="icons/agent.png" alt="agent" class="intermediate__icon">
             <div class="title title_intermediate">Агент в Китае</div>
@@ -292,9 +277,9 @@
                 Перевозки грузов на дальние расстояния без каких-либо ограничений.<br>
                 Любой груз доставим вовремя. 
             </div>
-            <div class="row row_catalog">
+            <div class="row">
 
-                <div class="prices col-md-3">
+                <div class="prices col-xl-3 col-md-6">
 
                     <!-- Главная сторона -->
                     <div class="prices__block prices__block_active">
@@ -324,7 +309,7 @@
                     </div>
                 </div>
                 
-                <div class="prices col-md-3">
+                <div class="prices col-xl-3 col-md-6">
                     <div class="prices__block prices__block_active">
                         <div class="prices__delivery">Ж/Д доставка</div>
                         <img src="icons/prices/train.png" alt="train" class="prices__icon">
@@ -350,7 +335,7 @@
                         
                     </div>
                 </div>
-                <div class="prices col-md-3">
+                <div class="prices col-xl-3 col-md-6">
                     <div class="prices__block prices__block_active">
                         <div class="prices__delivery">Автодоставка</div>
                         <img src="icons/prices/car.png" alt="car" class="prices__icon">
@@ -376,7 +361,7 @@
                         
                     </div>
                 </div>
-                <div class="prices col-md-3">
+                <div class="prices col-xl-3 col-md-6">
                     <div class="prices__block prices__block_active">
                         <div class="prices__delivery">Авиа доставка</div>
                         <img src="icons/prices/airplane.png" alt="airplane" class="prices__icon">
@@ -414,7 +399,7 @@
             <div class="consultation__icon">
                 <img src="icons/consultation.png" alt="consultation">
             </div> 
-            <form class="feed-form feed-form_consultation" id="consultation-form" action="#">
+            <form class="feed-form consultation__feed-form" id="consultation-form" action="#">
                 <div class="feed-form__block">
                     <div class="feed-form__inputs">
                         <input name="name" required placeholder="Ваше имя..." type="text">
@@ -423,7 +408,8 @@
                         <input name="phone" required placeholder="Ваш номер телефона...">
                     </div>
                     <div class="feed-form__inputs">
-                    <input name="email" required placeholder="Ваш e-mail..." type="email"> 
+                        <input name="email" required placeholder="Ваш e-mail..." type="email">
+                         
                     </div> 
                 </div>
                 <div class="feed-form__button">
@@ -434,7 +420,7 @@
     </div>
 
     <!--  Промежуточный блок   -->
-    <div class="intermediate intermediate_managers">
+    <div class="intermediate intermediate__managers">
         <div class="container">
             <img src="icons/managers.png" alt="managers" class="intermediate__icon">
             <div class="title title_intermediate">Менеджеры компании</div>
@@ -444,78 +430,63 @@
         </div>
     </div>
 
+    <!-- Схема работы -->
     <section class="schema" id="schema">
         <div class="container">
             <h3 class="title">Схема работы с нами</h3>
-            <div class="row schema_row">
-
-
-                <div class="schema__paragraph col-md-3">
-                    <img src="icons/work/request.png" alt="request" class="schema__icon">
-                    <div class="schema__title">
-                        Заявка
-                    </div>
-                    <div class="schema__descr">
+            <div class="row align-items-baseline justify-content-center">
+                <div class="paragraph schema__paragraph col-lg-3 col-sm-6">
+                    <img src="icons/work/request.png" alt="request" class="paragraph__icon">
+                    <div class="paragraph__title schema__paragraph__title">Заявка</div>
+                    <div class="paragraph__descr schema__paragraph__descr">
                         Вы оставляете заявку на нашем сайте или звоните нам
                     </div>
                 </div>
 
-                <div class="schema__paragraph col-md-3">
-                    <img src="icons/work/analytics.png" alt="analytics" class="schema__icon">
-                    <div class="schema__title">
-                        Аналитика доставки
-                    </div>
-                    <div class="schema__descr">
+                <div class="paragraph schema__paragraph col-lg-3 col-sm-6">
+                    <img src="icons/work/analytics.png" alt="analytics" class="paragraph__icon">
+                    <div class="paragraph__title schema__paragraph__title">Аналитика доставки</div>
+                    <div class="paragraph__descr schema__paragraph__descr">
                         Мы просчитываем варианты доставки Вашего груза
                     </div>
                 </div>
 
-                <div class="schema__paragraph col-md-3">
-                    <img src="icons/work/contract.png" alt="contract" class="schema__icon">
-                    <div class="schema__title">
-                        Договор
-                    </div>
-                    <div class="schema__descr">
+                <div class="paragraph schema__paragraph col-lg-3 col-sm-6">
+                    <img src="icons/work/contract.png" alt="contract" class="paragraph__icon">
+                    <div class="paragraph__title schema__paragraph__title">Договор</div>
+                    <div class="paragraph__descr schema__paragraph__descr">
                         Заключаем с Вами договор о поставке груза из Китая
                     </div>
                 </div>
 
-                <div class="schema__paragraph col-md-3">
-                    <img src="icons/work/stock.png" alt="stock" class="schema__icon">
-                    <div class="schema__title">
-                        Доставка на наш склад
-                    </div>
-                    <div class="schema__descr">
+                <div class="paragraph schema__paragraph col-lg-3 col-sm-6">
+                    <img src="icons/work/stock.png" alt="stock" class="paragraph__icon">
+                    <div class="paragraph__title schema__paragraph__title">Доставка на наш склад</div>
+                    <div class="paragraph__descr schema__paragraph__descr">
                         Связываемся с Вашим поставщиком в Китае и договариваемся о доставке груза на наш склад 
                     </div>
                 </div>
 
-                <div class="schema__paragraph col-md-3 offset-md-2">
-                    <img src="icons/work/checking.png" alt="checking" class="schema__icon">
-                    <div class="schema__title">
-                        Проверка груза
-                    </div>
-                    <div class="schema__descr">
+                <div class="paragraph schema__paragraph col-lg-3 col-sm-6">
+                    <img src="icons/work/checking.png" alt="checking" class="paragraph__icon">
+                    <div class="paragraph__title schema__paragraph__title">Проверка груза</div>
+                    <div class="paragraph__descr schema__paragraph__descr">
                         Мы проверяем, собираем и упаковываем перед отправкой Ваш груз на своём складе
                     </div>
                 </div>
 
-                <div class="schema__paragraph col-md-3">
-                    <img src="icons/work/delivery.png" alt="delivery" class="schema__icon">
-                    <div class="schema__title">
-                        Доставка груза
-                    </div>
-                    <div class="schema__descr">
+                <div class="paragraph schema__paragraph col-lg-3 col-sm-6">
+                    <img src="icons/work/delivery.png" alt="delivery" class="paragraph__icon">
+                    <div class="paragraph__title schema__paragraph__title">Доставка груза</div>
+                    <div class="paragraph__descr schema__paragraph__descr">
                         Мы перевозим ваш груз до места назначения и производим таможенную очистку
                     </div>
                 </div>
 
-                <div class="schema__paragraph col-md-3">
-                    <img src="icons/work/payment.png" alt="payment" class="schema__icon">
-                    <div class="schema__title">
-                        Оплата
-                    </div>
-                    <div class="schema__descr">
+                <div class="paragraph schema__paragraph col-lg-3 col-sm-6">
+                    <img src="icons/work/payment.png" alt="payment" class="paragraph__icon">
+                    <div class="paragraph__title schema__paragraph__title">Оплата</div>
+                    <div class="paragraph__descr schema__paragraph__descr">
                         Оплачиваете доставку груза при получении 
                     </div>
                 </div>
@@ -524,13 +495,12 @@
 
     </section>
 
+    <!-- Отзывы -->
     <section class="reviews" id="reviews">
         <div class="container">
             <h3 class="title">отзывы наших клиентов</h3>
             <div class="line"></div>
             <div class="subtitle">Мы всегда стараемся помочь клиентам, чтобы они обращались к нам снова</div>
-
-
             <div class="carousel">
                 <div>
                     <img src="img/feedback/olga.png" alt="slide" class="carousel__photo">
