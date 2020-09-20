@@ -575,14 +575,12 @@
                     </div>
                 </div>
 
-                <div class="footer__right">
-                    <div class="call">
-                        <div class="call__number">
-                            <div class="call__question">Есть вопросы?</div>
-                            <a href="tel:+79264230100" >+7 (926) 423 01 00</a>
-                        </div>
-                        <button class="button">Перезвоните мне</button>
+                <div class="call footer__call">
+                    <div class="call__number footer__call__number">
+                        <div class="call__question footer__call__question">Есть вопросы?</div>
+                        <a href="tel:+79264230100" >+7 (926) 423 01 00</a>
                     </div>
+                    <button class="button footer__button">Перезвоните мне</button>
                 </div>
             </div>
         </div>
@@ -614,12 +612,12 @@
             var element = document.getElementById('map');
             var options = {
                 zoom: 17,
-                center: {lat: 55.748539, lng: 37.629475}, // просто центр карты 
+                center: {lat: 55.748146, lng: 37.627218}, // нужный нам адрес
             };
             var myMap = new google.maps.Map(element, options);
 
             var marker = new google.maps.Marker({
-                position: {lat: 55.748146, lng: 37.627218},  // нужный нам адрес
+                position: {lat: 55.748146, lng: 37.627218},  
                 map: myMap,
                 animation: google.maps.Animation.BOUNCE,
                 icon: 'icons/flag.png',

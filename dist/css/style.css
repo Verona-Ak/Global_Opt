@@ -1747,7 +1747,7 @@ button {
 
 .promo {
   position: relative;
-  background: url("../../img/bg_airplane.jpg") center center/cover no-repeat;
+  background: url("../img/bg_airplane.jpg") center center/cover no-repeat;
   min-height: 680px;
   padding: 132px 0 82px 0;
 }
@@ -1883,11 +1883,11 @@ button {
 }
 
 .intermediate__agent {
-  background: url("../../img/bg_agent.jpg") center center/cover repeat;
+  background: url("../img/bg_agent.jpg") center center/cover repeat;
 }
 
 .intermediate__managers {
-  background: url("../../img/bg_managers.jpg") center center/cover repeat;
+  background: url("../img/bg_managers.jpg") center center/cover repeat;
 }
 
 .intermediate__icon {
@@ -2116,9 +2116,10 @@ button {
 }
 
 .feed-form textarea {
+  display: block;
   margin-top: 8px;
   padding-top: 18px;
-  width: 813px;
+  width: 99%;
   height: 71px;
   resize: none;
   border: 1px solid rgba(0, 0, 0, 0.21);
@@ -2164,7 +2165,12 @@ button {
   margin: 0 auto;
   margin-top: 31px;
   width: 601px;
-  position: relative;
+}
+
+.carousel:active,
+.carousel:focus {
+  outline: none;
+  border: none;
 }
 
 .carousel__photo {
@@ -2172,6 +2178,7 @@ button {
   margin: 0 auto;
   width: 114px;
   height: 114px;
+  position: relative;
 }
 
 .carousel__name {
@@ -2224,7 +2231,7 @@ button {
 .questions {
   min-height: 438px;
   padding: 62px 0 79px 0;
-  background: url("../../img/bg_questions.jpg") center center/cover no-repeat;
+  background: url("../img/bg_questions.jpg") center center/cover no-repeat;
 }
 
 .questions__block {
@@ -2314,7 +2321,7 @@ button {
 }
 
 .footer__icon {
-  width: 68px;
+  width: auto;
   height: 71px;
 }
 
@@ -2325,7 +2332,7 @@ button {
   line-height: 20px;
 }
 
-.footer__right {
+.footer__call {
   width: 620px;
   display: flex;
   justify-content: flex-end;
@@ -5703,6 +5710,14 @@ button {
   .consultation__icon::after {
     width: 415px;
   }
+
+  .footer__line {
+    max-width: 90vw;
+  }
+
+  .footer__company_name {
+    margin-left: 56px;
+  }
 }
 
 @media (max-width: 991px) {
@@ -5774,6 +5789,10 @@ button {
     top: 212px;
   }
 
+  .feed-form textarea {
+    width: 268px;
+  }
+
   .consultation {
     min-height: 564px;
   }
@@ -5782,6 +5801,10 @@ button {
   .consultation__icon::after {
     width: 218px;
     height: 332px;
+  }
+
+  .footer__company_name {
+    margin-left: 24px;
   }
 }
 
@@ -5797,8 +5820,8 @@ button {
   .hamburger {
     display: block;
     position: fixed;
-    right: 39px;
-    top: 8%;
+    right: 13px;
+    top: 4%;
     z-index: 6;
     transform: translateY(-50%);
     width: 26px;
@@ -5912,11 +5935,52 @@ button {
   }
 
   .carousel {
-    margin: 31px 41px 0 -45px;
+    width: 490px;
+  }
+
+  .carousel .slick-next,
+  .carousel .slick-prev {
+    top: 19%;
+    left: 122px;
+  }
+
+  .carousel .slick-next {
+    right: 122px;
+    left: auto;
+  }
+
+  .footer__icon {
+    height: 56px;
+  }
+
+  .footer__company_name {
+    font-size: 12px;
+    margin-left: 12px;
+  }
+
+  .footer__call {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .footer__call__question {
+    font-size: 11px;
+  }
+
+  .footer__call__number a {
+    font-size: 13px;
+  }
+
+  .footer__button {
+    margin-top: 5px;
   }
 }
 
 @media (max-width: 575px) {
+  .nav__item a {
+    font-size: 16px;
+  }
+
   .promo {
     padding: 47px 0 53px 0;
   }
@@ -5999,11 +6063,77 @@ button {
     margin-top: 5px;
     padding: 0px 50px 0 50px;
   }
+
+  .carousel {
+    width: 406px;
+  }
+
+  .carousel .slick-next,
+  .carousel .slick-prev {
+    top: 18%;
+    left: 84px;
+  }
+
+  .carousel .slick-next {
+    right: 84px;
+    left: auto;
+  }
+
+  .footer__author-sign {
+    display: none;
+  }
+
+  .footer__confidentiality {
+    flex-direction: column;
+  }
+
+  .footer__politics {
+    order: 1;
+    font-size: 10px;
+  }
+
+  .footer__author {
+    order: 2;
+    font-size: 12px;
+  }
+
+  .footer__line {
+    margin: 16px auto 12px;
+  }
 }
 
 @media (max-width: 476px) {
   .consultation__feed-form {
     margin-top: 118px;
+  }
+
+  .carousel {
+    width: 278px;
+  }
+
+  .carousel .slick-next,
+  .carousel .slick-prev {
+    top: 16%;
+    left: 33px;
+  }
+
+  .carousel .slick-next {
+    right: 33px;
+    left: auto;
+  }
+
+  .infowindow {
+    font-size: 12px;
+  }
+
+  .footer__button {
+    width: 140px;
+    height: 42px;
+    font-size: 11px;
+  }
+
+  .footer__company_name {
+    font-size: 9px;
   }
 }
 
@@ -6053,6 +6183,25 @@ button {
   .consultation__icon::before,
   .consultation__icon::after {
     width: 84px;
+  }
+
+  .footer__icon {
+    height: 71px;
+    margin-left: 14px;
+  }
+
+  .footer__button {
+    width: 140px;
+    height: 42px;
+    font-size: 11px;
+  }
+
+  .footer__company_name {
+    display: none;
+  }
+
+  .footer__call {
+    margin-right: 14px;
   }
 }
 
