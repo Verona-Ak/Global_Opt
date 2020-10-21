@@ -1,8 +1,9 @@
+'use strict';
 //гамбургер
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', function() {
     const navList = document.querySelector('.nav__list'),
-    navItem = document.querySelectorAll('.nav__item'),
-    hamburger = document.querySelector('.hamburger');
+        navItem = document.querySelectorAll('.nav__item'),
+        hamburger = document.querySelector('.hamburger');
 
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('hamburger_active');
@@ -15,9 +16,8 @@ window.addEventListener('DOMContentLoaded', () => {
             navList.classList.toggle('nav__list_active');
         });
     });
-});
 
-$(document).ready(function(){
+    // Slick слайдер
     $('.carousel').slick({
         speed: 1200,
         adaptiveHeight: true,
@@ -34,9 +34,7 @@ $(document).ready(function(){
         ],
     });
 
-     
     // Карточки в каталоге с ценами
-
     function toggleSlide(item) {
         $(item).each(function(i) {
             $(this).on('click', function(e) {
@@ -48,9 +46,8 @@ $(document).ready(function(){
     }
     toggleSlide('.button_prices_back');
     toggleSlide('.button_prices_next');
-    
-    //Валидация форм
 
+    //Валидация форм
     function valodateForms(form) {
         $(form).validate({
             rules: {
@@ -96,37 +93,91 @@ $(document).ready(function(){
     valodateForms('#questions-form');
 
     //Маска ввода номера
-
     $('input[name=phone]').mask("+7 (999) 999-99-99");
 
     
-
-   
-
+    // Скролл для текста внутри карточек
+    const prices = document.querySelectorAll('.prices'),
+        moreInf = document.querySelectorAll(".prices__descr_moreinf"),
+        catalog = document.querySelector('.catalog');
     
+    catalog.addEventListener('click', function (e) {
+        if (e.target && e.target.classList.contains('button_prices_next')) {
+          setOverflow(e.target);  
+        }
+        
+    });
+
+    function setOverflow(item) {
+        for (let i = 0; i < prices.length; i++) {
+            let btnNext = document.querySelectorAll('.button_prices_next')[i];
+            if (item == btnNext) {
+                let arr = [],
+                    str = moreInf[i].textContent;
+                str = str.replace(/[\s\.,!\?:;'"\(\)]/g, '');
+                for (let b = 0; b < str.length; b++) {
+                    arr.push(str[b]);
+                }
+                moreInf[i].style.overflowY = (arr.length >= 220) ? 'scroll' : 'hidden'; 
+            }
+        }
+
+    }
+
+    // PageUp, скролл и анимация
+    const pageUp = document.getElementsByClassName('pageup')[0];
+    // Установка таймера для анимации
+    let time = 0;
+    let timerId = setInterval(timeCalc, 1000);
+    function timeCalc() {
+        time++;
+        // console.log(time);
+        if (time >= 10) {
+            pageUp.classList.add('pageup__animated');
+        } else {
+            pageUp.classList.remove('pageup__animated');
+        }
+        return time;
+    }
+    //Событие скролла (таймер обнуляется)
+    document.addEventListener('scroll', function() {
+        if(document.documentElement.scrollTop > 1000) {
+            pageUp.style.display = 'block';
+        } else {
+            pageUp.style.display = 'none';
+        }
+        time = 0;
+        return time;
+    });
+    
+    // Событие мыши на объект, таймер выше "на паузе"
+    pageUp.addEventListener('mouseover', () => {     // наведение
+        let nullId = setInterval(nullation, 1000);
+        function nullation() {
+            time = 0;
+            return time; 
+        }
+        pageUp.addEventListener('mouseleave', ()=> {   // мышь покидает обьект
+            clearInterval(nullId);
+        });
+        pageUp.addEventListener('click', function() {   // клик
+            document.documentElement.scrollTop = 0;
+            clearInterval(nullId);
+        });
+    });
+    
+  
+    new WOW().init();
+
 });
+
 
 
           
 
 
 /*$(document).ready(function(){
-    $('.carusel__inner').slick({
-        speed: 1200,
-        adaptiveHeight: true,
-        prevArrow:'<button type="button" class="slick-prev"><img src="icons/catalog/left_arrow.png"></img></button>',
-        nextArrow: '<button type="button" class="slick-next"><img src="icons/catalog/right_arrow.png"></img></button>',
-        responsive: [
-            {
-              breakpoint: 992,
-                settings: {
-                    dots: false,
-                    arrows: false,
-                },
-            },
-        ],
-        
-    });
+   
 
     $('ul.catalog__tabs').on('click', 'li:not(.catalog__tab_active)', function() {
         $(this)
@@ -167,57 +218,7 @@ $(document).ready(function(){
         })
     });
 
-    //Валидация форм
-
-    function valodateForms(form){
-        $(form).validate({
-            rules: {
-                name: {
-                    required: true,
-                    minlength: 2,
-                },
-                phone: "required",
-                email: {
-                    required: true,
-                    email: true,
-                }
-            },
-            messages: {
-                name: {
-                    required: "Пожалуйста, введите своё имя",
-                    minlength: jQuery.validator.format("Введите {0} символа!")
-                },
-                phone: "Пожалуйста, введите свой телефон",
-                email: {
-                  required: "Пожалуйста, введите свою почту",
-                  email: "Неправильно введён адрес почты"
-                }
-            }
+   
     
-        });
-    };
-    valodateForms('#consultation-form');
-    valodateForms('#consultation form');
-    valodateForms('#order form');
-
-    //Маска ввода номера
-
-    $('input[name=phone]').mask("+7 (999) 999-99-99");
-
-    //Smooth scroll and pageup
-
-    $(window).scroll(function(){
-        if($(this).scrollTop() > 1600) {
-            $('.pageup').fadeIn();
-        } else {
-            $('.pageup').fadeOut();
-        }
-    });
-    $("a[href^='#up']").click(function(){
-        var _href = $(this).attr("href");
-        $("html, body").animate({scrollTop: $(_href).offset().top+"px"});
-        return false;
-    });
-    new WOW().init();
 
 });*/

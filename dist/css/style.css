@@ -1391,70 +1391,55 @@ template {
  * Copyright (c) 2018 Daniel Eden
  */
 
-@-webkit-keyframes fadeInUp {
-  0% {
-    -webkit-transform: translate3d(0, 100%, 0);
-    opacity: 0;
-    transform: translate3d(0, 100%, 0);
+@-webkit-keyframes swing {
+  20% {
+    transform: rotate(15deg);
+  }
+
+  40% {
+    transform: rotate(-10deg);
+  }
+
+  60% {
+    transform: rotate(5deg);
+  }
+
+  80% {
+    transform: rotate(-5deg);
   }
 
   to {
-    -webkit-transform: translateZ(0);
-    opacity: 1;
-    transform: translateZ(0);
+    transform: rotate(0deg);
   }
 }
 
-@keyframes fadeInUp {
-  0% {
-    -webkit-transform: translate3d(0, 100%, 0);
-    opacity: 0;
-    transform: translate3d(0, 100%, 0);
+@keyframes swing {
+  20% {
+    transform: rotate(15deg);
+  }
+
+  40% {
+    transform: rotate(-10deg);
+  }
+
+  60% {
+    transform: rotate(5deg);
+  }
+
+  80% {
+    transform: rotate(-5deg);
   }
 
   to {
-    -webkit-transform: translateZ(0);
-    opacity: 1;
-    transform: translateZ(0);
+    transform: rotate(0deg);
   }
 }
 
-.fadeInUp {
-  -webkit-animation-name: fadeInUp;
-  animation-name: fadeInUp;
-}
-
-@-webkit-keyframes fadeInUpBig {
-  0% {
-    -webkit-transform: translate3d(0, 2000px, 0);
-    opacity: 0;
-    transform: translate3d(0, 2000px, 0);
-  }
-
-  to {
-    -webkit-transform: translateZ(0);
-    opacity: 1;
-    transform: translateZ(0);
-  }
-}
-
-@keyframes fadeInUpBig {
-  0% {
-    -webkit-transform: translate3d(0, 2000px, 0);
-    opacity: 0;
-    transform: translate3d(0, 2000px, 0);
-  }
-
-  to {
-    -webkit-transform: translateZ(0);
-    opacity: 1;
-    transform: translateZ(0);
-  }
-}
-
-.fadeInUpBig {
-  -webkit-animation-name: fadeInUpBig;
-  animation-name: fadeInUpBig;
+.swing {
+  -webkit-animation-name: swing;
+  -webkit-transform-origin: top center;
+  animation-name: swing;
+  transform-origin: top center;
 }
 
 .animated {
@@ -1532,6 +1517,58 @@ h3 {
 a,
 button {
   transition: 0.3s all;
+}
+
+@-webkit-keyframes move_chevron {
+  from {
+    bottom: 70px;
+  }
+
+  20% {
+    bottom: 40px;
+  }
+
+  40% {
+    bottom: 60px;
+  }
+
+  60% {
+    bottom: 40px;
+  }
+
+  80% {
+    bottom: 50px;
+  }
+
+  to {
+    bottom: 40px;
+  }
+}
+
+@keyframes move_chevron {
+  from {
+    bottom: 70px;
+  }
+
+  20% {
+    bottom: 40px;
+  }
+
+  40% {
+    bottom: 60px;
+  }
+
+  60% {
+    bottom: 40px;
+  }
+
+  80% {
+    bottom: 50px;
+  }
+
+  to {
+    bottom: 40px;
+  }
 }
 
 .call {
@@ -1982,6 +2019,7 @@ button {
 }
 
 .prices__descr_moreinf {
+  height: 180px;
   margin: 20px 14px 0 14px;
 }
 
@@ -2379,6 +2417,35 @@ button {
   font-size: 13px;
   font-weight: 300;
   line-height: 17px;
+}
+
+.pageup {
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 40px;
+  height: 40px;
+}
+
+.pageup img {
+  width: 100%;
+}
+
+.pageup__animated {
+  -webkit-animation-name: move_chevron;
+          animation-name: move_chevron;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.pageup__animated:hover {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
 }
 
 @media (min-width: 576px) {
