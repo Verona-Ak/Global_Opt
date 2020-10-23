@@ -219,6 +219,7 @@ window.addEventListener('DOMContentLoaded', function() {
     //Модальные окна 
     const btnHeader = document.querySelector('.header__button'),
         btnPromo = document.querySelector('.promo__button'),
+        btnFooter = document.querySelector('.footer__button'),
         overlay = document.querySelector('.overlay'),
         modal =  document.querySelectorAll('.modal'),
         modalCons = document.querySelectorAll('.modal')[0],
@@ -227,7 +228,7 @@ window.addEventListener('DOMContentLoaded', function() {
         forms = document.querySelectorAll('form');
 
     document.addEventListener('click', function(e) {
-        if (e.target && e.target == btnHeader) {
+        if (e.target && e.target == btnHeader || e.target == btnFooter) {
             overlay.style.display = 'block';
             modalCons.style.display = 'block';
         } else if (e.target && e.target == btnPromo) {
@@ -248,7 +249,7 @@ window.addEventListener('DOMContentLoaded', function() {
     });
 
     for (let form of forms) {
-        form.addEventListener('submit', function(e) {
+        form.addEventListener('submit', async function(e) {
             e.preventDefault();
             let index = 0;
             let inputs = form.querySelectorAll('input');
@@ -259,13 +260,29 @@ window.addEventListener('DOMContentLoaded', function() {
                     index += 1;
                 }
             }
-            console.log(index);
             if (index == arr.length) {
-                for( let i = 0; i < modal.length; i++) {
-                    modal[i].style.display = "none";
+
+                let formData = new FormData(form);
+
+                let response = await fetch('sendmail.php', {
+                    method: 'POST',
+                    body: formData
+                });
+                if (response.ok) {
+                    let result = await response.json();
+                    alert(result.message);
+                    for( let i = 0; i < modal.length; i++) {
+                        modal[i].style.display = "none";
+                    }
+                    overlay.style.display = 'block'; 
+                    modalTnx.style.display = 'block';
+
+                } else {
+                    alert("Ошибка");
                 }
-                overlay.style.display = 'block'; 
-                modalTnx.style.display = 'block';
+
+
+                
             }
         });
     
@@ -276,28 +293,4 @@ window.addEventListener('DOMContentLoaded', function() {
 
 
 
-          
-
-
-
-// $(document).ready(function(){
-   
-    
-//    $('form').submit(function(e){
-//         e.preventDefault();
-//         $.ajax({
-//             type: "POST",
-//             url: "mailer/smart.php",
-//             data: $(this).serialize()
-//         }).done(function(){
-//             $(this).find("input").val("");
-//             $('#consultation, #order').fadeOut('slow');
-//             $(".overlay, #thanks").fadeIn('slow');
-//             $('form').trigger('reset');
-//         });
-//         return false;
-//     });
-
-    
-
-// });
+        
