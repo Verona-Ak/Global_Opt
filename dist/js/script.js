@@ -1,5 +1,7 @@
 'use strict';
-//гамбургер
+
+
+//гАМБУРГЕР
 window.addEventListener('DOMContentLoaded', function() {
     const navList = document.querySelector('.nav__list'),
         navItem = document.querySelectorAll('.nav__item'),
@@ -16,6 +18,7 @@ window.addEventListener('DOMContentLoaded', function() {
             navList.classList.toggle('nav__list_active');
         });
     });
+
 
     // Slick слайдер
     $('.carousel').slick({
@@ -34,6 +37,8 @@ window.addEventListener('DOMContentLoaded', function() {
         ],
     });
 
+
+
     // Карточки в каталоге с ценами
     function toggleSlide(item) {
         $(item).each(function(i) {
@@ -46,6 +51,8 @@ window.addEventListener('DOMContentLoaded', function() {
     }
     toggleSlide('.button_prices_back');
     toggleSlide('.button_prices_next');
+
+
 
     //Валидация форм
     function valodateForms(form) {
@@ -91,6 +98,9 @@ window.addEventListener('DOMContentLoaded', function() {
     }
     valodateForms('#consultation-form');
     valodateForms('#questions-form');
+    valodateForms('#callback-form');
+    valodateForms('#calculation-form');
+
 
     //Маска ввода номера
     $('input[name=phone]').mask("+7 (999) 999-99-99");
@@ -124,7 +134,9 @@ window.addEventListener('DOMContentLoaded', function() {
 
     }
 
-    // PageUp, скролл и анимация
+
+    // PageUp и анимация
+
     const pageUp = document.getElementsByClassName('pageup')[0];
     // Установка таймера для анимации
     let time = 0;
@@ -141,7 +153,8 @@ window.addEventListener('DOMContentLoaded', function() {
     }
     //Событие скролла (таймер обнуляется)
     document.addEventListener('scroll', function() {
-        if(document.documentElement.scrollTop > 1000) {
+        let top = window.pageYOffset|| document.body.scrollTop || document.documentElement.scrollTop;
+        if(top > 1000) {
             pageUp.style.display = 'block';
         } else {
             pageUp.style.display = 'none';
@@ -160,14 +173,102 @@ window.addEventListener('DOMContentLoaded', function() {
         pageUp.addEventListener('mouseleave', ()=> {   // мышь покидает обьект
             clearInterval(nullId);
         });
-        pageUp.addEventListener('click', function() {   // клик
-            document.documentElement.scrollTop = 0;
+        pageUp.addEventListener('click', function(e) {   // клик
+            // document.documentElement.scrollTop = 0;
+            up();
             clearInterval(nullId);
         });
     });
-    
-  
+    function up() {  
+        let top = window.pageYOffset|| document.body.scrollTop || document.documentElement.scrollTop,
+            t; 
+        if(top > 0) {  
+            window.scrollBy(0,((top+100)/-10));  
+            t = setTimeout(up, 20);  
+        } else {
+            clearTimeout(t);  
+            return false;  
+        }
+    }
+    /*
+    +100 - это высота на которой скрипт начинает замедлятся вверху.
+    -10 - это количество пикселей, которое прокручивается при движении на верх.
+    20 - это 0,02 секунды за которые прокручиваются те 10 пикселей что указаны как (-10)
+    */
     new WOW().init();
+
+    //Плавный переход по ссылкам a href^='#'"
+    let links = document.querySelectorAll("a[href*='#']"); 
+    for (let link of links) {
+        link.addEventListener('click', function(e) {
+           e.preventDefault();
+            if (e.target) {
+                const id = link.getAttribute('href'),
+                    targetElem = document.querySelector('' + id);
+                targetElem.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
+
+
+
+
+    //Модальные окна 
+    const btnHeader = document.querySelector('.header__button'),
+        btnPromo = document.querySelector('.promo__button'),
+        overlay = document.querySelector('.overlay'),
+        modal =  document.querySelectorAll('.modal'),
+        modalCons = document.querySelectorAll('.modal')[0],
+        modalCalc = document.querySelectorAll('.modal')[1],
+        modalTnx = document.querySelectorAll('.modal')[2],
+        form = document.querySelector('form'),
+        label = document.querySelectorAll('label');
+
+    document.addEventListener('click', function(e) {
+        if (e.target && e.target == btnHeader) {
+            overlay.style.display = 'block';
+            modalCons.style.display = 'block';
+        } else if (e.target && e.target == btnPromo) {
+            overlay.style.display = 'block';
+            modalCalc.style.display = 'block';
+        }
+    });    
+    overlay.addEventListener('click', function(e){
+        if (e.target && e.target.classList.contains('modal__close')){
+            overlay.style.display = 'none';
+            for( let i = 0; i < modal.length; i++) {
+                modal[i].style.display = "none";
+            }
+
+        }
+    });
+    let index = true;
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+            overlay.style.display = 'block'; 
+            modalTnx.style.display = 'block';
+        
+    });
+    function checkOnErrors() {
+        for (let i = 0; i < label.length; i++) {
+            if (label[i].classList.contains('error')) {
+                return false;
+            }
+            
+        }
+    }
+
+
+        
+    overlay.addEventListener('click', function(event) {
+        if (event.target && event.target.classList.contains('modal__btn') && ('.name-error').style.display != 'block') {
+
+        }
+    });
+
 
 });
 
@@ -176,49 +277,25 @@ window.addEventListener('DOMContentLoaded', function() {
           
 
 
-/*$(document).ready(function(){
-   
 
-    $('ul.catalog__tabs').on('click', 'li:not(.catalog__tab_active)', function() {
-        $(this)
-          .addClass('catalog__tab_active').siblings().removeClass('catalog__tab_active')
-          .closest('div.container').find('div.catalog__content').removeClass('catalog__content_active').eq($(this).index()).addClass('catalog__content_active');
-    });
-
-    function toggleSlide(item) {
-        $(item).each(function(i) {
-            $(this).on('click', function(e) {
-                e.preventDefault();
-                $('.catalog-item__content').eq(i).toggleClass('catalog-item__content_active');
-                $('.catalog-item__list').eq(i).toggleClass('catalog-item__list_active');
-            })
-        });
-    };
-
-    toggleSlide('.catalog-item__link');
-    toggleSlide('.catalog-item__back');
-
-    //Модальные окна 
-
-    $('[data-modal=consultation]').on('click', function() {
-        $('.overlay, #consultation').fadeIn('slow');
-    });
-
-    $('.modal__close').on('click', function() {
-        $('.overlay, #consultation, #order, #thanks').fadeOut('slow');
-    });
-
-    $('.button_mini').on('click', function() {
-        $('.overlay, #order').fadeIn('slow');
-    });
-
-    $('.button_mini').each(function(i) {
-        $(this).on('click', function() {
-            $('#order .modal__descr').text($('.catalog-item__subtitle').eq(i).text());
-        })
-    });
-
+// $(document).ready(function(){
    
     
+//    $('form').submit(function(e){
+//         e.preventDefault();
+//         $.ajax({
+//             type: "POST",
+//             url: "mailer/smart.php",
+//             data: $(this).serialize()
+//         }).done(function(){
+//             $(this).find("input").val("");
+//             $('#consultation, #order').fadeOut('slow');
+//             $(".overlay, #thanks").fadeIn('slow');
+//             $('form').trigger('reset');
+//         });
+//         return false;
+//     });
 
-});*/
+    
+
+// });

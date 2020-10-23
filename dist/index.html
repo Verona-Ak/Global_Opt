@@ -20,25 +20,25 @@
         <div class="container">
             <div class="row justify-content-between">
                 <img src="icons/logo.png" alt="logo" class="header__logo">
-                <nav class="nav header__nav">
+                <nav class="nav header__nav" id="nav">
                     <ul class="nav__list nav__list_active">
                         <li class="nav__item">
-                            <a  href="#advantages">Преимущества</a>
+                            <a href="#advantages">Преимущества</a>
                         </li>
                         <li class="nav__item">
-                            <a  href="#ourwork">Наша работа</a>
+                            <a href="#ourwork">Наша работа</a>
                         </li>
                         <li class="nav__item">
-                            <a  href="#prices">Цены</a>
+                            <a href="#prices">Цены</a>
                         </li>
                         <li class="nav__item">
-                            <a  href="#schema">Схема работы</a>
+                            <a href="#schema">Схема работы</a>
                         </li>
                         <li class="nav__item">
-                            <a  href="#reviews">Отзывы</a>
+                            <a href="#reviews">Отзывы</a>
                         </li>
                         <li class="nav__item">
-                            <a  href="#map">Контакты</a>
+                            <a href="#map">Контакты</a>
                         </li>
                     </ul>
                 </nav>
@@ -47,7 +47,7 @@
                         <div class="call__question">Есть вопросы?</div>
                         <a href="tel:+79264230100">+7 (926) 423 01 00</a>
                     </div>
-                    <button class="button header__button">Перезвоните мне</button>
+                    <button data-modal="consultation" class="button header__button">Перезвоните мне</button>
                     <a href="tel:+79264230100" class="call__img header__call__img">
                         <div></div>
                     </a>
@@ -106,7 +106,7 @@
                 </div>
 
             </div>
-            <button class="button button_more promo__button">Получить расчёт</button>
+            <button data-modal="consultation" class="button button_more promo__button">Получить расчёт</button>
         </div>
     </section>
 
@@ -400,7 +400,7 @@
             <div class="consultation__icon">
                 <img src="icons/consultation.png" alt="consultation">
             </div> 
-            <form class="feed-form consultation__feed-form" id="consultation-form" action="#">
+            <form class="feed-form consultation__feed-form" id="consultation-form" action="#" novalidate>
                 <div class="feed-form__block">
                     <div class="feed-form__inputs">
                         <input name="name" required placeholder="Ваше имя..." type="text">
@@ -409,8 +409,7 @@
                         <input name="phone" required placeholder="Ваш номер телефона...">
                     </div>
                     <div class="feed-form__inputs">
-                        <input name="email" required placeholder="Ваш e-mail..." type="email">
-                         
+                        <input name="email" required placeholder="Ваш e-mail..." type="email"> 
                     </div> 
                 </div>
                 <div class="feed-form__button">
@@ -540,7 +539,7 @@
                     <span>Напишите нам!</span>
                 </div>
                 <div class="questions__form">
-                    <form action="#" class="feed-form" id="questions-form">
+                    <form action="#" class="feed-form" id="questions-form" novalidate>
                         <div class="feed-form__block">
                             <div class="feed-form__inputs">
                                 <input name="name" required placeholder="Ваше имя..." type="text">
@@ -563,8 +562,10 @@
 
     </section>
 
+    <!-- Карта -->
     <div id="map"></div>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer__inf">
@@ -603,8 +604,55 @@
             </div>
         </div>
     </footer>
+
+    <!-- Стрелка -->
     <a href="#up" class="pageup"><img src="icons/chevron-circle-up-solid.svg" alt="up"></a>
 
+    <!-- Модальные окна -->
+    <div class="overlay">
+        <div class="modal small" id="consultation">
+            <div class="modal__close">&times;</div>
+            <div class="modal__subtitle">Заполните форму заявки</div>
+            <div class="modal__descr">и мы перезвоним вам в течении 10 минут</div>
+            <form class="feed-form modal__feed-form" id="callback-form" action="#" novalidate>
+                <div class="feed-form__inputs modal__inputs">
+                    <input name="name" required placeholder="Ваше имя..." type="text">
+                </div>
+                <div class="feed-form__inputs modal__inputs">
+                    <input name="phone" required placeholder="Ваш номер телефона...">
+                </div>
+                <button class="button button_feed-form modal__btn">отправить заявку</button> 
+            </form>
+            
+        </div>
+
+        <div class="modal small" id="calculation">
+            <div class="modal__close">&times;</div>
+            <div class="modal__subtitle">Заполните форму заявки</div>
+            <div class="modal__descr">и мы смяжемся с Вами для осуществления расчёта</div>
+            <form class="feed-form modal__feed-form" id="calculation-form" action="#" novalidate>
+                <div class="feed-form__inputs modal__inputs">
+                    <input name="name" required placeholder="Ваше имя..." type="text">
+                </div>
+                <div class="feed-form__inputs modal__inputs">
+                    <input name="phone" required placeholder="Ваш номер телефона...">
+                </div>
+                <div class="feed-form__inputs modal__inputs">
+                    <input name="email" required placeholder="Ваш e-mail..." type="email">
+                </div> 
+                <button class="button button_feed-form modal__btn">отправить заявку</button> 
+            </form>
+            
+        </div>
+
+        <div class="modal modal_mini" id="thanks">
+            <div class="modal__close">&times;</div>
+            <div class="modal__subtitle">Спасибо за вашу заявку!</div>
+            <div class="modal__descr">Наш менеджер свяжется с вами 
+            в ближайшее время!</div>
+            
+        </div>
+    </div>
 
 
     <!-- Подключение гугл карт, настройка маркера и инф. окошка -->
@@ -639,10 +687,8 @@
     <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>  
     
+    
     <script src="plugins/slick.min.js"></script>
-    
-    
-
     <script src="plugins/jquery.validate.min.js"></script>  
     <script src="plugins/jquery.maskedinput.min.js"></script>
     <script src="plugins/wow.min.js"></script>
