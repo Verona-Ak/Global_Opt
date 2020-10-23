@@ -202,9 +202,9 @@ window.addEventListener('DOMContentLoaded', function() {
     for (let link of links) {
         link.addEventListener('click', function(e) {
            e.preventDefault();
-            if (e.target) {
-                const id = link.getAttribute('href'),
-                    targetElem = document.querySelector('' + id);
+            let id = link.getAttribute('href');
+            if (e.target && /\w$/.test(id)) {  //id заканчивается на букву (чтобы исключить pageup)
+                let targetElem = document.querySelector('' + id);
                 targetElem.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
@@ -224,8 +224,7 @@ window.addEventListener('DOMContentLoaded', function() {
         modalCons = document.querySelectorAll('.modal')[0],
         modalCalc = document.querySelectorAll('.modal')[1],
         modalTnx = document.querySelectorAll('.modal')[2],
-        form = document.querySelector('form'),
-        label = document.querySelectorAll('label');
+        forms = document.querySelectorAll('form');
 
     document.addEventListener('click', function(e) {
         if (e.target && e.target == btnHeader) {
@@ -242,33 +241,36 @@ window.addEventListener('DOMContentLoaded', function() {
             for( let i = 0; i < modal.length; i++) {
                 modal[i].style.display = "none";
             }
-
-        }
-    });
-    let index = true;
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-            overlay.style.display = 'block'; 
-            modalTnx.style.display = 'block';
-        
-    });
-    function checkOnErrors() {
-        for (let i = 0; i < label.length; i++) {
-            if (label[i].classList.contains('error')) {
-                return false;
+            for (let i = 0; i < forms.length; i++) {
+                forms[i].reset();
             }
-            
-        }
-    }
-
-
-        
-    overlay.addEventListener('click', function(event) {
-        if (event.target && event.target.classList.contains('modal__btn') && ('.name-error').style.display != 'block') {
-
         }
     });
 
+    for (let form of forms) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            let index = 0;
+            let inputs = form.querySelectorAll('input');
+            let textareas = form.querySelectorAll('textarea');
+            let arr = [...inputs, ...textareas];
+            for (let elem of arr) {
+                if(!elem.classList.contains('error')) {
+                    index += 1;
+                }
+            }
+            console.log(index);
+            if (index == arr.length) {
+                for( let i = 0; i < modal.length; i++) {
+                    modal[i].style.display = "none";
+                }
+                overlay.style.display = 'block'; 
+                modalTnx.style.display = 'block';
+            }
+        });
+    
+    }
+   
 
 });
 
