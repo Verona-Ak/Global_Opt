@@ -6,5 +6,5 @@ One page site which includes the following:
   <li>interactive map</li>
   <li>animated elements</li>
 </ul>
-The site is adapted for different screen sizes.<br> 
+This site is <b>adapted for different screen sizes</b>.<br> 
 <i>For submitting form need to use PHPMailer</i>
