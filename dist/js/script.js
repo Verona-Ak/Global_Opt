@@ -1,7 +1,7 @@
 'use strict';
 
 
-//гАМБУРГЕР
+//ГАМБУРГЕР
 window.addEventListener('DOMContentLoaded', function() {
     const navList = document.querySelector('.nav__list'),
         navItem = document.querySelectorAll('.nav__item'),
@@ -11,7 +11,6 @@ window.addEventListener('DOMContentLoaded', function() {
         hamburger.classList.toggle('hamburger_active');
         navList.classList.toggle('nav__list_active');
     });
-
     navItem.forEach(item => {
         item.addEventListener('click', () => {
             hamburger.classList.toggle('hamburger_active');
@@ -227,6 +226,8 @@ window.addEventListener('DOMContentLoaded', function() {
         modalTnx = document.querySelectorAll('.modal')[2],
         forms = document.querySelectorAll('form');
 
+
+
     document.addEventListener('click', function(e) {
         if (e.target && e.target == btnHeader || e.target == btnFooter) {
             overlay.style.display = 'block';
@@ -238,6 +239,7 @@ window.addEventListener('DOMContentLoaded', function() {
     });    
     overlay.addEventListener('click', function(e){
         if (e.target && e.target.classList.contains('modal__close')){
+            
             overlay.style.display = 'none';
             for( let i = 0; i < modal.length; i++) {
                 modal[i].style.display = "none";

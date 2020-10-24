@@ -2531,7 +2531,7 @@ button {
 .modal label.error {
   border: none;
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 0px;
 }
 
 .small {
@@ -5956,6 +5956,10 @@ button {
     width: 268px;
   }
 
+  .feed-form label.error {
+    margin-bottom: 0px;
+  }
+
   .consultation {
     min-height: 564px;
   }
@@ -6095,6 +6099,7 @@ button {
   .consultation__icon::before,
   .consultation__icon::after {
     width: 159px;
+    height: 317px;
   }
 
   .carousel {
@@ -6136,6 +6141,10 @@ button {
 
   .footer__button {
     margin-top: 5px;
+  }
+
+  .feed-form__button {
+    top: 198px;
   }
 }
 
@@ -6214,7 +6223,7 @@ button {
 
   .consultation__icon::before,
   .consultation__icon::after {
-    height: 323px;
+    height: 307px;
     width: 100px;
   }
 
@@ -6263,6 +6272,10 @@ button {
   .footer__line {
     margin: 16px auto 12px;
   }
+
+  .pageup {
+    right: 16px;
+  }
 }
 
 @media (max-width: 476px) {
@@ -6297,6 +6310,31 @@ button {
 
   .footer__company_name {
     font-size: 9px;
+  }
+
+  .modal {
+    width: 234px;
+    padding: 22px 20px 22px 20px;
+  }
+
+  .modal__subtitle {
+    font-size: 16px;
+  }
+
+  .modal__descr {
+    font-size: 12px;
+  }
+
+  .modal__close {
+    right: -27px;
+  }
+
+  .modal__feed-form {
+    margin-top: 12px;
+  }
+
+  .modal__inputs input {
+    width: 193px;
   }
 }
 
